@@ -1,126 +1,485 @@
-# MotorPulse
+# MotorPulse — AI-Powered Industrial Motor Monitoring Dashboard
 
-A local motor-condition dashboard with a 3D conveyor, real Python model inference, continuous signal graphs, and electrical power estimates.
+**MotorPulse** is a simulation-based industrial motor monitoring and predictive maintenance dashboard that combines **signal processing, machine learning, energy analytics, and real-time visualization** to monitor the operating condition of industrial motors.
 
-## Run on Windows
+🌐 **Live Dashboard:**  
+https://motor-pulse-dashboard.onrender.com/
 
-1. Install **Python 3.11 (64-bit)** with the Python launcher.
-2. Extract this entire folder from the ZIP.
-3. Double-click **start_windows.bat**. The first run creates a virtual environment and downloads dependencies; keep an internet connection available for setup.
-4. Open **http://127.0.0.1:5000** in a modern browser.
-5. Press **Ctrl+C** in the terminal to stop.
+---
 
-After setup, runtime assets, models, data, and Three.js are local. No CDN or online model service is required. The 3D view needs WebGL; the dashboard shows a fallback message if it is unavailable.
+## Overview
 
-Manual setup (Windows PowerShell):
+Industrial motors are critical components of manufacturing and conveyor systems. Unexpected motor failures can lead to downtime, maintenance costs, and production losses.
 
-```powershell
-py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe app.py
+MotorPulse provides a unified dashboard for monitoring simulated motor data and identifying potential operating and fault conditions.
+
+The system combines:
+
+- ⚡ Energy and power analytics
+- 📈 Digital Signal Processing (DSP)
+- 🔊 FFT-based frequency analysis
+- 🤖 Machine-learning-based diagnostics
+- 🔧 Fault classification
+- 📊 Real-time simulation
+- 🏭 Motor production monitoring
+- 📉 Predictive-maintenance insights
+
+The dashboard is designed as a **simulation and monitoring system**, rather than a direct physical motor diagnostic device.
+
+---
+
+## Key Features
+
+### 1. Motor Monitoring
+
+The dashboard continuously simulates motor operating data and presents important operating parameters through an interactive interface.
+
+Monitored information includes:
+
+- Motor operating condition
+- Power consumption
+- Energy usage
+- Production information
+- Signal characteristics
+- Fault status
+- Diagnostic information
+
+---
+
+### 2. DSP & FFT Analysis
+
+Motor signals can contain frequency-domain information that helps identify changes in machine behavior.
+
+MotorPulse applies **Fast Fourier Transform (FFT)** analysis to simulated motor signals to visualize their frequency components.
+
+This allows the dashboard to provide:
+
+- Time-domain signal visualization
+- Frequency-domain analysis
+- Dominant frequency information
+- Signal-based monitoring
+
+---
+
+### 3. AI-Based Diagnostics
+
+Machine-learning models are used to classify motor operating and fault conditions based on the available dataset features.
+
+The project includes trained models for fault-related analysis using:
+
+- Extra Trees
+- XGBoost
+
+The models are integrated into the Flask backend and their outputs are displayed through the dashboard.
+
+---
+
+### 4. Energy Analytics
+
+MotorPulse analyzes simulated electrical and energy-related measurements to provide insights into motor power consumption.
+
+The dashboard can display information such as:
+
+- Power consumption
+- Energy usage
+- Operating efficiency-related metrics
+- Production-related analytics
+
+---
+
+### 5. Fault Detection
+
+The system uses machine-learning models to identify different motor fault/operating conditions represented in the underlying dataset.
+
+The dashboard presents the model output as an easily understandable diagnostic result rather than exposing raw machine-learning predictions directly to the user.
+
+---
+
+### 6. Real-Time Simulation
+
+MotorPulse operates in **simulation mode**.
+
+The backend uses the project's dataset and simulator to generate a continuously changing stream of motor measurements.
+
+This allows the dashboard to demonstrate how a predictive-maintenance monitoring system could behave without requiring a physical industrial motor or sensor setup.
+
+---
+
+## System Architecture
+
+```text
+                 ┌─────────────────────┐
+                 │   Motor Dataset     │
+                 │ combined_dataset.csv│
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │     Simulator       │
+                 │ Motor Measurements  │
+                 └──────────┬──────────┘
+                            │
+              ┌─────────────┼─────────────┐
+              ▼             ▼             ▼
+        ┌──────────┐  ┌──────────┐  ┌────────────┐
+        │   DSP    │  │  Energy  │  │ ML Models  │
+        │ FFT      │  │Analytics │  │ Diagnostics│
+        └────┬─────┘  └────┬─────┘  └─────┬──────┘
+             │             │              │
+             └─────────────┼──────────────┘
+                           ▼
+                 ┌─────────────────────┐
+                 │    Flask Backend    │
+                 │       app.py        │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │   MotorPulse UI     │
+                 │ Monitoring Dashboard│
+                 └─────────────────────┘
 ```
 
-macOS/Linux, with Python 3.11 installed:
+---
+
+## Technologies Used
+
+### Backend
+
+- Python
+- Flask
+- Gunicorn
+- NumPy
+- Pandas
+- SciPy
+- Scikit-learn
+- XGBoost
+
+### Frontend
+
+- HTML
+- CSS
+- JavaScript
+
+### Machine Learning
+
+- Extra Trees Classifier
+- XGBoost
+- Feature-based motor fault classification
+
+### Signal Processing
+
+- FFT
+- Frequency-domain analysis
+- Digital signal processing techniques
+
+### Deployment
+
+- GitHub
+- Render
+- Gunicorn
+
+---
+
+## Project Structure
+
+```text
+Motor-pulse-dashboard/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── fault_info.py
+├── power_analytics.py
+├── simulator.py
+│
+├── data/
+│   └── combined_dataset.csv
+│
+├── motor_ai/
+│   ├── inference.py
+│   ├── models/
+│   │   ├── fault_extratrees.joblib
+│   │   └── fault_xgboost.joblib
+│   └── ...
+│
+├── reports/
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── ...
+│
+└── tests/
+```
+
+---
+
+## Dataset
+
+MotorPulse uses a prepared motor dataset located at:
+
+```text
+data/combined_dataset.csv
+```
+
+The dataset provides the underlying measurements used by the simulation, analytics, and machine-learning components.
+
+The dashboard should therefore be interpreted as a **dataset-driven simulation**, not as a live connection to industrial motor sensors.
+
+---
+
+## Machine Learning
+
+The project includes trained machine-learning models for motor fault analysis.
+
+### Models
+
+**Extra Trees**
+
+```text
+motor_ai/models/fault_extratrees.joblib
+```
+
+**XGBoost**
+
+```text
+motor_ai/models/fault_xgboost.joblib
+```
+
+The models are loaded by the backend and used during the diagnostic process.
+
+The project also contains an electrical-health model used during local development. Due to its large file size, it is not stored in the GitHub repository.
+
+---
+
+## Local Installation
+
+### 1. Clone the repository
 
 ```bash
-python3.11 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python app.py
+git clone https://github.com/sanginiv11/Motor-pulse-dashboard.git
+cd Motor-pulse-dashboard
 ```
 
-If port 5000 is busy, use `python app.py --port 5001` and open http://127.0.0.1:5001. Run these commands from this project folder, using the virtual environment's Python. Do not open index.html directly.
+### 2. Install Python
 
-## What's included
+Python **3.13** is recommended for this project.
 
-- **Overview:** always-running synthetic replay; automatic sequence or manual fault selection; progression and noise controls; pause/resume; orbitable 3D motor and conveyor.
-- **Six visual states:** smooth healthy rotation, wandering misaligned belt, overload heat and stacked crates, eccentric imbalance, belt slip with slower conveyor, and bearing rattle/debris. Effects are illustrative, not measurements of smoke or physical damage.
-- **Four signal panels:** raw vibration, raw electrical signals, AI-coloured vibration, and classified electrical signals. The electrical panel uses separate voltage/current/kW scales. Raw vibration is transported at 1 kHz; electrical traces are averaged to 200 Hz for display. Source samples are used for power calculations.
-- **Fault index:** consistent colours, coloured explanatory text, dataset signatures, inspection suggestions, and scenario launch buttons.
-- **Power & energy:** active/apparent/non-active magnitude, power-factor and rated-current checks, calibrated baseline applicability, belt-travel index, session kWh/cost/CO2, and energy grouped by predicted condition.
-- **Model validation:** live confusion matrix plus validation evidence and limitations.
-- **Export:** up to the last 60 simulated seconds as 50 ms sensor averages, scenario, prediction, confidence, and power class.
-- **Accessibility:** keyboard controls, responsive layout, reduced-motion setting and OS preference, labelled controls and chart sections.
-- **External inference API:** POST /api/predict; external windows do not alter the simulation energy ledger.
-
-## Model and validation
-
-The two fault-model weights and 143-feature extractor are preserved from the supplied release. Predictions use the 50/50 ExtraTrees/XGBoost ensemble. The model sees sensor values only; the simulator's selected fault is used for replay agreement and the scenario animation, never as an inference input.
-
-The incompatible new 230 V synthetic simulator was replaced in the app by the supplied **dataset-based replay simulator**. This fixes the integration mismatch for the demo; it does not establish generalisation beyond that dataset. Progression selects a region of each source segment, not a calibrated physical fault severity.
-
-Reproducible pipeline test: **1,440 non-overlapping windows**, six conditions, progression 0.1/0.5/0.9, noise 0/0.1/0.3/0.6, and a 3-second settle period per scenario.
-
-| Noise setting | Replay agreement |
-|---|---:|
-| 0% | 100.00% |
-| 10% | 100.00% |
-| 30% | 99.72% |
-| 60% stress | 82.50% |
-
-Noise is relative to the simulator's channel noise reference. All stress results remain in the report. These are **source-data replay compatibility scores**, not independent accuracy on real motors.
-
-The earlier packaged perturbation result was reproduced at **91.78%**. Its 114 base windows match the original dataset; exclusion from training is not proven. The separate temporal retraining experiment achieved **98.81%**, but that measures new fitted copies on a same-segment split, not the deployed frozen weights. Historical 94.41% is not reproducible with its missing original test implementation.
-
-The old electrical ML model is preserved for provenance but **not used by the dashboard**. The supplied updated simulator produced 89.25% aggregate classification and only 69.4% recall for its low-power-factor mode. The app uses explicit engineering rules instead.
-
-The pre-integration review in reports/MODEL_REVIEW.txt records the earlier stop decision. Development subsequently continued at the user's request. It is a historical review, not the current application's run status.
-
-## Power conventions and limitations
-
-Default supply is balanced three-phase: RMS line-to-line voltage, RMS line current, and true power factor:
-- S = sqrt(3) × V × I / 1000 kVA
-- P = S × PF kW
-- Energy = sum(P × sample interval) / 3600 kWh
-
-Single-phase uses factor 1. Power is computed per sample before averaging; a predicted fault never multiplies it. Since true PF may contain distortion, sqrt(S² − P²) is labelled **non-active magnitude**, not measured reactive power.
-
-The healthy reference is a linear fit to the supplied healthy load range. Outside that range, the UI flags extrapolation and does not accumulate excess-reference kWh. Fault energy attribution is an association, not causal waste estimation. The belt-travel index is a proxy and does not measure material throughput.
-
-Rated current (default 12 A), tariff (0.12 USD/kWh), and grid factor (0.70 kg CO2/kWh) are **editable assumptions**, not verified plant values. Changes to tariff/grid factor affect future accumulation only. Pause and reset before changing phases/currency. Settings and ledger are session-only; restart resets them. No persistent industrial alarm, protection relay, real sensor adapter, or metering certification is claimed.
-
-## Reproduce checks
+Check your Python version:
 
 ```bash
-python -m unittest discover -s tests -v
-python tests/validate_pipeline.py
+python --version
 ```
 
-The first command tests all six fault scenarios through the backend, API input validation, pause/reset, static assets, and numerical power/energy behaviour. The second overwrites reports/pipeline_validation.json with repeatable metrics, per-condition results, precision/recall/F1, confusion matrix, and model hashes.
-
-Optional JavaScript command-line check (Node.js 22+):
+or:
 
 ```bash
-node tests/frontend_smoke.mjs
-node tests/twin_smoke.mjs
+py --version
 ```
 
-Run with the virtual environment activated so its `python` is on PATH. These use small DOM/canvas/renderer test doubles, Flask's test client, and real Three.js scene geometry; they do not open a browser or control the desktop. They check UI data wiring, tab state, chart drawing calls, buffer bounds, finite geometry, six distinct animation states, and paused-frame stability. Actual browser/WebGL appearance is not visually verified by these tests.
+---
 
-Serialized XGBoost may emit a cross-version loading warning from the supplied joblib artifact. Dependency versions are pinned to the tested runtime, and frozen predictions reproduce the supplied replacement result. Only load model artifacts you trust.
+### 3. Create a virtual environment
 
-## API
+Windows:
 
-- GET /api/meta — classes, descriptions, configuration, reports
-- GET /api/stream?cursor=0 — incremental sensor batches, prediction and power data
-- GET /api/summary — ledger, confusion matrix, events
-- POST /api/control — mode, fault, severity [0,1], noise [0,0.6], paused
-- POST /api/config — power configuration
-- POST /api/reset — session metrics/ledger reset; simulation clock continues
-- POST /api/predict — {"window": [[...8 numbers...], ...256 rows...]}
-- GET /api/export — recent CSV
-- GET /api/health — engine liveness
+```bash
+py -3.13 -m venv venv
+```
 
-Channel order: voltage, current, power_factor, motor_rpm, belt_speed, temperature, load, vibration. Expected sample rate: 1 kHz. The inference endpoint checks shape/finiteness and electrical ranges; it cannot establish whether incoming data resembles the training distribution.
+Activate it:
 
-Bound to 127.0.0.1 by default. This local prototype uses Flask's development server; it is not an authenticated plant-network service.
+```bash
+venv\Scripts\activate
+```
 
-## File map
+---
 
-- app.py — thread-safe streaming engine and HTTP API
-- simulator.py — continuous source-data replay, transitions, injected sensor noise
-- power_analytics.py — electrical calculations and ledger
-- motor_ai/ — supplied fault weights, features, and inference wrapper
-- static/ — dashboard, canvas traces, Three.js motor animation
-- static/vendor/THREE-LICENSE.txt — Three.js 0.170.0 MIT licence
-- reports/ — current pipeline validation plus historical review/results
-- tests/ — numerical, API and UI wiring checks
+### 4. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 5. Run the application
+
+```bash
+python app.py
+```
+
+Alternatively:
+
+```bash
+py -3.13 app.py
+```
+
+The application will normally be available at:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## Running With Gunicorn
+
+For deployment environments such as Render:
+
+```bash
+gunicorn "app:create_app()"
+```
+
+The application uses a Flask application factory:
+
+```python
+def create_app(engine=None):
+    ...
+    return app
+```
+
+Therefore, Gunicorn must load the factory rather than searching for a global `app` variable.
+
+---
+
+## Deployment
+
+MotorPulse is deployed using **Render**.
+
+The production deployment uses:
+
+```text
+Build Command:
+pip install -r requirements.txt
+```
+
+and:
+
+```text
+Start Command:
+gunicorn "app:create_app()"
+```
+
+Python 3.13 is specified for deployment to ensure compatible binary packages are used for dependencies such as SciPy.
+
+### Live Deployment
+
+**MotorPulse Dashboard**
+
+https://motor-pulse-dashboard.onrender.com/
+
+---
+
+## Important Limitations
+
+MotorPulse is currently a **simulation-based predictive-maintenance dashboard**.
+
+It does not directly connect to:
+
+- Industrial motors
+- PLCs
+- SCADA systems
+- Physical vibration sensors
+- Current/voltage sensors
+- Industrial IoT hardware
+
+The displayed measurements and diagnostic outputs are therefore based on the project's dataset and simulation pipeline.
+
+### AI Diagnostic Limitation
+
+The machine-learning predictions should be interpreted as predictions within the conditions represented by the training dataset.
+
+They should not be treated as definitive physical diagnosis of an industrial motor without validation against real sensor measurements.
+
+---
+
+## Why MotorPulse?
+
+MotorPulse demonstrates how multiple E&TC and AI concepts can be combined into a single industrial monitoring system:
+
+```text
+Sensors / Dataset
+       ↓
+Signal Processing
+       ↓
+FFT Analysis
+       ↓
+Feature Extraction
+       ↓
+Machine Learning
+       ↓
+Fault Detection
+       ↓
+Energy Analytics
+       ↓
+Predictive Maintenance Dashboard
+```
+
+This creates a bridge between:
+
+**Electronics & Telecommunication Engineering**
+
+and
+
+**Artificial Intelligence / Machine Learning**
+
+for industrial applications.
+
+---
+
+## Future Improvements
+
+Potential future extensions include:
+
+- Real-time IoT sensor integration
+- ESP32/STM32-based motor monitoring
+- Accelerometer-based vibration sensing
+- Real current and voltage measurement
+- MQTT communication
+- Live industrial motor data
+- Automated maintenance alerts
+- Remaining Useful Life (RUL) prediction
+- Cloud database integration
+- Model retraining using real-world data
+- Edge-AI deployment
+- Digital-twin integration
+
+---
+
+## Project Status
+
+**Current version:** Simulation / Demonstration
+
+**Deployment:** Live
+
+**Backend:** Flask
+
+**ML:** Integrated
+
+**DSP/FFT:** Integrated
+
+**Energy Analytics:** Integrated
+
+**Real Industrial Hardware:** Not currently connected
+
+---
+
+## Author
+
+**Sangini Verma**
+
+B.Tech — Electronics & Telecommunication Engineering
+
+Symbiosis Institute of Technology, Pune
+
+---
+
+## Links
+
+🌐 **Live Dashboard:**  
+https://motor-pulse-dashboard.onrender.com/
+
+💻 **GitHub:**  
+https://github.com/sanginiv11/Motor-pulse-dashboard
