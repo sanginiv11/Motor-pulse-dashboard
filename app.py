@@ -21,7 +21,7 @@ class Engine:
         self.rows=deque(maxlen=1200); self.events=deque(maxlen=80)
         self.seq=0; self.ai=None; self.cm=np.zeros((6,6),int); self.transition_windows=0
         self.probs=None; self.error=None; self.last_success=time.monotonic(); self.running=False
-        self.thread=None; self.latest_power=None
+        self.thread=None; self.latest_power=None; self._clock=None
         if start:
             self.running=True; self.thread=threading.Thread(target=self.loop,daemon=True); self.thread.start()
 
@@ -53,6 +53,18 @@ class Engine:
                 ai=self.ai,power=pw))
             self.last_success=time.monotonic();self.error=None
 
+    def advance(self,max_ticks=12):
+        # Request-driven simulation: catch up to wall-clock (20 ticks/s), no background thread needed.
+        with self.lock:
+            now=time.monotonic()
+            if self._clock is None:self._clock=now;n=1
+            else:n=min(int((now-self._clock)/.05),max_ticks);self._clock+=n*.05
+            if now-self._clock>.5:self._clock=now
+            for _ in range(max(n,0)):
+                try:self.tick()
+                except Exception as e:
+                    self.error=f'{type(e).__name__}: {e}';break
+
     def loop(self):
         deadline=time.monotonic()
         while self.running:
@@ -75,7 +87,7 @@ class Engine:
 def create_app(engine=None):
     app=Flask(__name__,static_folder=str(ROOT/'static'))
     app.config['MAX_CONTENT_LENGTH']=2*1024*1024
-    engine=engine or Engine();app.config['ENGINE']=engine
+    engine=engine or Engine(start=False);app.config['ENGINE']=engine
 
     @app.before_request
     def local_api():
@@ -83,6 +95,10 @@ def create_app(engine=None):
             origin=request.headers.get('Origin')
             if origin and urlparse(origin).netloc!=request.host:return jsonify(error='Origin mismatch'),403
             if not request.is_json:return jsonify(error='Use application/json'),415
+
+    @app.before_request
+    def drive():
+        if request.method=='GET' and request.path.startswith('/api/') and not engine.running:engine.advance()
 
     @app.errorhandler(ValueError)
     @app.errorhandler(TypeError)
