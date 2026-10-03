@@ -1,0 +1,1 @@
+{"name":"motorpulse-local","private":true,"type":"module","scripts":{"test":"node tests/frontend_smoke.mjs && node tests/twin_smoke.mjs"}}

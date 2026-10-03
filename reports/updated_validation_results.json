@@ -1,0 +1,251 @@
+{
+  "replacement_accuracy": 0.9177631578947368,
+  "per_seed": {
+    "184729": 0.8333333333333334,
+    "583021": 1.0,
+    "947315": 0.9035087719298246,
+    "260481": 1.0,
+    "731904": 0.8333333333333334,
+    "405117": 0.9736842105263158,
+    "862530": 0.9122807017543859,
+    "319774": 0.8859649122807017
+  },
+  "per_class": {
+    "Bearing Degradation": {
+      "precision": 0.6696035242290749,
+      "recall": 1.0,
+      "f1-score": 0.8021108179419525,
+      "support": 152.0
+    },
+    "Belt Misalignment": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 152.0
+    },
+    "Belt Slip": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 152.0
+    },
+    "Excessive Load": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 152.0
+    },
+    "Healthy": {
+      "precision": 1.0,
+      "recall": 0.506578947368421,
+      "f1-score": 0.6724890829694323,
+      "support": 152.0
+    },
+    "Mechanical Imbalance": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 152.0
+    },
+    "accuracy": 0.9177631578947368,
+    "macro avg": {
+      "precision": 0.9449339207048458,
+      "recall": 0.9177631578947368,
+      "f1-score": 0.912433316818564,
+      "support": 912.0
+    },
+    "weighted avg": {
+      "precision": 0.9449339207048458,
+      "recall": 0.9177631578947368,
+      "f1-score": 0.9124333168185642,
+      "support": 912.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      77,
+      0,
+      0,
+      0,
+      0,
+      75
+    ],
+    [
+      0,
+      152,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      152,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      152,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      152,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      152
+    ]
+  ],
+  "class_order": [
+    "Healthy",
+    "Belt Misalignment",
+    "Excessive Load",
+    "Mechanical Imbalance",
+    "Belt Slip",
+    "Bearing Degradation"
+  ],
+  "windows_matching_original_dataset": 114,
+  "electrical_updated_simulator": {
+    "accuracy": 0.8925,
+    "per_mode": {
+      "Overcurrent": 1.0,
+      "GOOD": 0.995,
+      "Overvoltage": 0.935,
+      "PowerAnomaly": 0.929,
+      "Undervoltage": 0.802,
+      "LowPowerFactor": 0.694
+    },
+    "confusion_matrix": [
+      [
+        995,
+        5
+      ],
+      [
+        640,
+        4360
+      ]
+    ],
+    "note": "Integration consistency test on new synthetic simulator, not original training generator or real recordings."
+  },
+  "updated_motor_simulator": {
+    "accuracy": 0.3416666666666667,
+    "n": 360,
+    "per_class": {
+      "Healthy": {
+        "precision": 0.3380281690140845,
+        "recall": 0.4,
+        "f1-score": 0.366412213740458,
+        "support": 60.0
+      },
+      "Belt Misalignment": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 60.0
+      },
+      "Excessive Load": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 60.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 0.6724137931034483,
+        "recall": 0.65,
+        "f1-score": 0.6610169491525424,
+        "support": 60.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.8,
+        "support": 60.0
+      },
+      "Bearing Degradation": {
+        "precision": 0.12738853503184713,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.18433179723502305,
+        "support": 60.0
+      },
+      "accuracy": 0.3416666666666667,
+      "macro avg": {
+        "precision": 0.35630508285823,
+        "recall": 0.34166666666666673,
+        "f1-score": 0.33529349335467057,
+        "support": 360.0
+      },
+      "weighted avg": {
+        "precision": 0.35630508285823,
+        "recall": 0.3416666666666667,
+        "f1-score": 0.33529349335467057,
+        "support": 360.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        24,
+        0,
+        0,
+        0,
+        0,
+        36
+      ],
+      [
+        5,
+        0,
+        1,
+        19,
+        0,
+        35
+      ],
+      [
+        23,
+        0,
+        0,
+        0,
+        0,
+        37
+      ],
+      [
+        3,
+        0,
+        1,
+        39,
+        0,
+        17
+      ],
+      [
+        8,
+        0,
+        0,
+        0,
+        40,
+        12
+      ],
+      [
+        8,
+        32,
+        0,
+        0,
+        0,
+        20
+      ]
+    ]
+  },
+  "packaged_test_error": "TypeError(\"simulate_window() got an unexpected keyword argument 'seed'\")"
+}

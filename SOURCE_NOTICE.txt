@@ -1,0 +1,2 @@
+Canonical release: reconstructed 143-feature fault pipeline + supplied electrical model + supplied energy model.
+Do not represent the reconstructed extractor as the missing original V4 extractor.

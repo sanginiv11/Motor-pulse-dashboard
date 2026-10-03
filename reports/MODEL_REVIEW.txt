@@ -1,0 +1,37 @@
+MODEL UPDATE REVIEW — 2026-10-04
+Decision: STOP before integration under the requested 90% gate.
+
+The updated archive is more complete, but its two fault model files, electrical model file, and fault feature extractor are byte-identical to the initial release. No learned-model improvement occurred.
+
+Measured results (single-threaded command-line Python):
+- Packaged replacement perturbation test: 91.7763%, 837/912 correct, reproduced exactly.
+- Updated motor simulator -> frozen fault ensemble: 34.1667%, 123/360 correct. Six classes, severities 0.1/0.5/0.9, seeds 0..19, otherwise simulator defaults. This measures compatibility with this simulator, not accuracy on physical motors.
+- Updated electrical simulator -> frozen electrical model: 89.25%, 5355/6000 correct. Seed 20261004; 1000 examples per mode (GOOD, Undervoltage, Overvoltage, Overcurrent, LowPowerFactor, PowerAnomaly). Five BAD modes for one GOOD mode; class distribution affects aggregate accuracy. GOOD recall 99.5%, BAD recall 87.2%; balanced accuracy 93.35%. LowPowerFactor mode recall 69.4%.
+- Earlier release, non-overlapping supplied-data windows: 100%, 234 windows. Potentially in-sample; NOT independent accuracy.
+- Same-architecture temporal retraining: 98.8095%, 83/84 test windows; 138 training windows; first 60% of each contiguous class segment for training, then 256-sample gap before test. Only one segment per class; NOT an independent recording test and NOT frozen-model accuracy. Original model files remain untouched.
+- Earlier frozen weights, 50%-of-channel-standard-deviation additive noise: 84.6154%. 10%, 20%, 30% noise: 100%; 5% gain error: 100%; 10% gain error: 96.1538%. These are sensitivity tests on supplied data, not unseen recordings.
+
+Validation limitations:
+All 114 windows named heldout_original_windows match windows in the earlier combined_dataset.csv within floating-point tolerance. No training-window manifest proves these were excluded from the 3000 release training windows. This is a leakage risk, not proof of training leakage. The 912 predictions reuse 114 underlying windows under eight perturbation seeds. The perturbation function resets its RNG per window, so each seed applies the same perturbation pattern to every window. Seed accuracy ranges from 83.33% to 100%. Independent physical-recording accuracy is unknown.
+Historical 94.41% is not reproducible from this package; its original perturbation implementation was not retained. The replacement 91.78% is explicitly a different test.
+
+Architecture and inference:
+Eight input channels, 256 samples at stated 1000 Hz, 143 engineered features, equal probability average of ExtraTrees and XGBoost. Exact estimator parameters and artifact SHA256 hashes are in validation_results.json.
+Files: preprocessing/feature_extraction.py::extract_features and inference/predict.py::MotorHealthModel.predict_fault. Electrical: electrical/simulator_and_model.py::make_features and inference/predict.py::MotorHealthModel.predict_electrical_features.
+
+Other issues:
+The dashboard still calls a JavaScript demo classify() function rather than Python model inference.
+The updated electrical test calls simulate_window(seed=123), but the function accepts rng rather than seed; this raises TypeError.
+The new electrical feature names/order match the stored model feature_names_in_, but original training formulas remain unverified. Its generator divides expected power by efficiency while make_features does not, yielding a nonzero nominal error even for GOOD examples.
+The new motor simulator defaults to 230 V; supplied source data begins near 399 V. Matching dimensions alone does not ensure distribution compatibility.
+The uploaded Claude validation script says non-overlapping windows but uses a 128 stride for 256-sample windows. It also relies on a motor_ai package not included with those standalone scripts. index.html references a missing static/js/main.js.
+
+Reproduction (after extracting original packages):
+Use Python 3.11; tested with numpy 2.4.4, pandas 3.0.2, scikit-learn 1.8.0, xgboost 3.0.2, plus scipy and joblib. Serialized XGBoost emits a cross-version warning; the packaged replacement accuracy nevertheless matches exactly. Original training dependency versions were not pinned.
+Install: python -m pip install numpy==2.4.4 pandas==3.0.2 scikit-learn==1.8.0 xgboost==3.0.2 scipy joblib
+Updated check (one command):
+python check_update.py --release PATH_TO/motor_health_full_project/motor_health_model_release_v2 --csv PATH_TO/motor_platform/data/combined_dataset.csv --out updated_validation_results.json
+Original check (one command):
+python validate_independent.py --release PATH_TO/motor_health_model_release --csv PATH_TO/motor_platform/data/combined_dataset.csv --out validation_results.json
+
+Both JSON reports include per-class precision, recall, F1 and confusion matrices. Confusion matrices use true labels as rows and predicted labels as columns. This ZIP is a validation review, not a completed integrated application. No dashboard integration or model tuning was performed after the failed gate.

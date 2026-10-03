@@ -1,0 +1,639 @@
+{
+  "kind": "Synthetic source-data replay compatibility, not independent model accuracy",
+  "classes": [
+    "Healthy",
+    "Belt Misalignment",
+    "Excessive Load",
+    "Mechanical Imbalance",
+    "Belt Slip",
+    "Bearing Degradation"
+  ],
+  "conditions": [
+    {
+      "fault": "Healthy",
+      "severity": 0.1,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.1,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.1,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.1,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.1,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.1,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.5,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.5,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.5,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.5,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.5,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.5,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.9,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.9,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.9,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.9,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.9,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.9,
+      "noise": 0.0,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.1,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.1,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.1,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.1,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.1,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.1,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.5,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.5,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.5,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.5,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.5,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.5,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.9,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.9,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.9,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.9,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.9,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.9,
+      "noise": 0.1,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.1,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.1,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.1,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.1,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.1,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.1,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.5,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.5,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.5,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.5,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.5,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.5,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.9,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 0.95
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.9,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.9,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.9,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.9,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.9,
+      "noise": 0.3,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.1,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 0.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.1,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 0.85
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.1,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.1,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.1,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.1,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.5,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 0.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.5,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.5,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.5,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.5,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.5,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Healthy",
+      "severity": 0.9,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 0.0
+    },
+    {
+      "fault": "Belt Misalignment",
+      "severity": 0.9,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Excessive Load",
+      "severity": 0.9,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "severity": 0.9,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Belt Slip",
+      "severity": 0.9,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    },
+    {
+      "fault": "Bearing Degradation",
+      "severity": 0.9,
+      "noise": 0.6,
+      "n": 20,
+      "accuracy": 1.0
+    }
+  ],
+  "accuracy": 0.9555555555555556,
+  "confusion_matrix": [
+    [
+      179,
+      0,
+      0,
+      0,
+      0,
+      61
+    ],
+    [
+      0,
+      237,
+      0,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      240,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      240,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      240,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      240
+    ]
+  ],
+  "per_class": {
+    "Healthy": {
+      "precision": 1.0,
+      "recall": 0.7458333333333333,
+      "f1-score": 0.8544152744630071,
+      "support": 240.0
+    },
+    "Belt Misalignment": {
+      "precision": 1.0,
+      "recall": 0.9875,
+      "f1-score": 0.9937106918238994,
+      "support": 240.0
+    },
+    "Excessive Load": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 240.0
+    },
+    "Mechanical Imbalance": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 240.0
+    },
+    "Belt Slip": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 240.0
+    },
+    "Bearing Degradation": {
+      "precision": 0.7894736842105263,
+      "recall": 1.0,
+      "f1-score": 0.8823529411764706,
+      "support": 240.0
+    },
+    "accuracy": 0.9555555555555556,
+    "macro avg": {
+      "precision": 0.9649122807017544,
+      "recall": 0.9555555555555556,
+      "f1-score": 0.9550798179105628,
+      "support": 1440.0
+    },
+    "weighted avg": {
+      "precision": 0.9649122807017544,
+      "recall": 0.9555555555555556,
+      "f1-score": 0.9550798179105628,
+      "support": 1440.0
+    }
+  },
+  "by_noise": {
+    "0.0": 1.0,
+    "0.1": 1.0,
+    "0.3": 0.9972222222222222,
+    "0.6": 0.825
+  },
+  "n": 1440,
+  "window_size": 256,
+  "stride": 256,
+  "settle_samples": 3000,
+  "model_sha256": {
+    "fault_extratrees.joblib": "c6c1b1508828d9da9c2f6af15ac2b0e5689c13b710a90018f4cdb830619bc94b",
+    "fault_xgboost.joblib": "677f56b9db0f0e005f4233bca27126fa546aeaa6e5896f852c9784cf4b0ba60b"
+  },
+  "limitations": [
+    "Replay uses model training-domain source data.",
+    "Severity selects progression in source data; it is not calibrated physical severity.",
+    "Stress conditions are included, not discarded to reach a threshold.",
+    "Independent physical-motor accuracy remains unknown."
+  ]
+}

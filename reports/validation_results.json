@@ -1,0 +1,977 @@
+{
+  "classes": [
+    "Healthy",
+    "Belt Misalignment",
+    "Excessive Load",
+    "Mechanical Imbalance",
+    "Belt Slip",
+    "Bearing Degradation"
+  ],
+  "feature_count": 143,
+  "segments": [
+    {
+      "fault": "Healthy",
+      "samples": 10000,
+      "train_end_exclusive": 6000,
+      "test_start": 6256
+    },
+    {
+      "fault": "Belt Misalignment",
+      "samples": 10000,
+      "train_end_exclusive": 6000,
+      "test_start": 6256
+    },
+    {
+      "fault": "Excessive Load",
+      "samples": 10000,
+      "train_end_exclusive": 6000,
+      "test_start": 6256
+    },
+    {
+      "fault": "Mechanical Imbalance",
+      "samples": 10000,
+      "train_end_exclusive": 6000,
+      "test_start": 6256
+    },
+    {
+      "fault": "Belt Slip",
+      "samples": 10000,
+      "train_end_exclusive": 6000,
+      "test_start": 6256
+    },
+    {
+      "fault": "Bearing Degradation",
+      "samples": 10000,
+      "train_end_exclusive": 6000,
+      "test_start": 6256
+    }
+  ],
+  "versions": {
+    "sklearn": "1.8.0",
+    "xgboost": "3.0.2",
+    "numpy": "2.4.4"
+  },
+  "sha256": {
+    "combined_dataset.csv": "f1dedb9745d9873100aad82e2ec02720d354cfb22dc913d750268a709749a3a6",
+    "fault_extratrees.joblib": "c6c1b1508828d9da9c2f6af15ac2b0e5689c13b710a90018f4cdb830619bc94b",
+    "fault_xgboost.joblib": "677f56b9db0f0e005f4233bca27126fa546aeaa6e5896f852c9784cf4b0ba60b"
+  },
+  "architecture": {
+    "ExtraTrees": {
+      "bootstrap": false,
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 400,
+      "n_jobs": 1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "XGBoost": {
+      "objective": "multi:softprob",
+      "base_score": null,
+      "booster": null,
+      "callbacks": null,
+      "colsample_bylevel": null,
+      "colsample_bynode": null,
+      "colsample_bytree": 0.9,
+      "device": null,
+      "early_stopping_rounds": null,
+      "enable_categorical": false,
+      "eval_metric": "mlogloss",
+      "feature_types": null,
+      "feature_weights": null,
+      "gamma": null,
+      "grow_policy": null,
+      "importance_type": null,
+      "interaction_constraints": null,
+      "learning_rate": 0.06,
+      "max_bin": null,
+      "max_cat_threshold": null,
+      "max_cat_to_onehot": null,
+      "max_delta_step": null,
+      "max_depth": 7,
+      "max_leaves": null,
+      "min_child_weight": null,
+      "missing": null,
+      "monotone_constraints": null,
+      "multi_strategy": null,
+      "n_estimators": 450,
+      "n_jobs": 1,
+      "num_parallel_tree": null,
+      "random_state": 42,
+      "reg_alpha": null,
+      "reg_lambda": null,
+      "sampling_method": null,
+      "scale_pos_weight": null,
+      "subsample": 0.9,
+      "tree_method": "hist",
+      "validate_parameters": null,
+      "verbosity": null,
+      "num_class": 6
+    },
+    "weights": [
+      0.5,
+      0.5
+    ]
+  },
+  "clean": {
+    "accuracy": 1.0,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        39,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        39,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        39
+      ]
+    ]
+  },
+  "noise_10pct": {
+    "accuracy": 1.0,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        39,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        39,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        39
+      ]
+    ]
+  },
+  "noise_20pct": {
+    "accuracy": 1.0,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        39,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        39,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        39
+      ]
+    ]
+  },
+  "noise_30pct": {
+    "accuracy": 1.0,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        39,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        39,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        39
+      ]
+    ]
+  },
+  "noise_50pct": {
+    "accuracy": 0.8461538461538461,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 0.9743589743589743,
+        "f1-score": 0.987012987012987,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 0.10256410256410256,
+        "f1-score": 0.18604651162790697,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 0.52,
+        "recall": 1.0,
+        "f1-score": 0.6842105263157895,
+        "support": 39.0
+      },
+      "accuracy": 0.8461538461538461,
+      "macro avg": {
+        "precision": 0.9199999999999999,
+        "recall": 0.8461538461538461,
+        "f1-score": 0.8095450041594473,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 0.92,
+        "recall": 0.8461538461538461,
+        "f1-score": 0.8095450041594472,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        38,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        4,
+        0,
+        35
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        39
+      ]
+    ]
+  },
+  "gain_5pct": {
+    "accuracy": 1.0,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        39,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        39,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        39,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        39,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        39
+      ]
+    ]
+  },
+  "gain_10pct": {
+    "accuracy": 0.9615384615384616,
+    "n": 234,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 0.8205128205128205,
+        "f1-score": 0.9014084507042254,
+        "support": 39.0
+      },
+      "Belt Misalignment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 0.9743589743589743,
+        "f1-score": 0.987012987012987,
+        "support": 39.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 39.0
+      },
+      "Belt Slip": {
+        "precision": 0.8125,
+        "recall": 1.0,
+        "f1-score": 0.896551724137931,
+        "support": 39.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 0.9743589743589743,
+        "f1-score": 0.987012987012987,
+        "support": 39.0
+      },
+      "accuracy": 0.9615384615384616,
+      "macro avg": {
+        "precision": 0.96875,
+        "recall": 0.9615384615384616,
+        "f1-score": 0.9619976914780217,
+        "support": 234.0
+      },
+      "weighted avg": {
+        "precision": 0.96875,
+        "recall": 0.9615384615384616,
+        "f1-score": 0.9619976914780217,
+        "support": 234.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        32,
+        0,
+        0,
+        0,
+        7,
+        0
+      ],
+      [
+        0,
+        39,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        38,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        39,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        39,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        38
+      ]
+    ]
+  },
+  "temporal_retrained": {
+    "accuracy": 0.9880952380952381,
+    "n": 84,
+    "classification_report": {
+      "Healthy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 14.0
+      },
+      "Belt Misalignment": {
+        "precision": 0.9333333333333333,
+        "recall": 1.0,
+        "f1-score": 0.9655172413793104,
+        "support": 14.0
+      },
+      "Excessive Load": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 14.0
+      },
+      "Mechanical Imbalance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 14.0
+      },
+      "Belt Slip": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 14.0
+      },
+      "Bearing Degradation": {
+        "precision": 1.0,
+        "recall": 0.9285714285714286,
+        "f1-score": 0.9629629629629629,
+        "support": 14.0
+      },
+      "accuracy": 0.9880952380952381,
+      "macro avg": {
+        "precision": 0.9888888888888889,
+        "recall": 0.9880952380952381,
+        "f1-score": 0.9880800340570456,
+        "support": 84.0
+      },
+      "weighted avg": {
+        "precision": 0.9888888888888888,
+        "recall": 0.9880952380952381,
+        "f1-score": 0.9880800340570456,
+        "support": 84.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        14,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        14,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        14,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        14,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        13
+      ]
+    ],
+    "train_windows": 138
+  },
+  "limitations": [
+    "Frozen-model clean and perturbation tests use its available training-domain data; independent membership is unknown.",
+    "Temporal test uses disjoint windows and a 256-sample gap, but only one segment per class, not independent recordings.",
+    "Historical 94.41% methodology and exact test windows are unavailable.",
+    "Electrical feature engineering and independent test data are missing."
+  ],
+  "gate": "NOT ESTABLISHED: no independent recordings for frozen model; included electrical report is below 90%."
+}

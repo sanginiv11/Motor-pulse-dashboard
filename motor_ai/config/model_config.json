@@ -1,0 +1,11 @@
+{
+  "fault_model": {
+    "input_channels": ["voltage", "current", "power_factor", "motor_rpm", "belt_speed", "temperature", "load", "vibration"],
+    "window_size": 256,
+    "sampling_frequency_hz": 1000,
+    "feature_count": 143,
+    "ensemble": {"extra_trees_weight": 0.5, "xgboost_weight": 0.5}
+  },
+  "classes": ["Healthy", "Belt Misalignment", "Excessive Load", "Mechanical Imbalance", "Belt Slip", "Bearing Degradation"],
+  "electrical_model": {"type": "ExtraTreesClassifier", "input_feature_count": 15, "labels": ["GOOD", "BAD"]}
+}

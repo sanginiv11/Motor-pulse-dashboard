@@ -1,0 +1,16 @@
+MotorPulse delivery checks — 2026-10-04
+
+PASS: 15 Python numerical/API/integration tests.
+PASS: All six fault scenarios classify correctly after settling at nominal replay settings.
+PASS: HTTP server health and continuously advancing stream.
+PASS: Command-line JavaScript UI wiring, tabs, metadata, live values, hover names, matrix, and bounded chart history.
+PASS: Real Three.js scene geometry, six distinct animation states, finite transforms, and paused-frame stability with a renderer test double.
+PASS: Strict JSON metadata serialization (nonfinite historical model parameters normalized to null).
+
+Replay validation: 1440 non-overlapping windows.
+Noise 0%: 100.00%; 10%: 100.00%; 30%: 99.72%; 60%: 82.50%.
+See pipeline_validation.json for per-condition and per-class results.
+
+No desktop automation or visual browser inspection was performed, as requested.
+WebGL/GPU rendering and visual layout have not been verified in an actual browser.
+Real-machine accuracy remains unknown; this is a synthetic replay prototype.
